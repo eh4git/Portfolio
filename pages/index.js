@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import SideDrawer from '../components/sideDrawer'
+import SplashBanner from '../components/splashBanner'
 import styles from '../styles/Home.module.css'
-
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -10,8 +10,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-     <SideDrawer />
-
+      <SideDrawer />
+      <SplashBanner />
     </div>
   )
 }
