@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React, { Fragment, useEffect } from 'react';
-import '../styles/globals.css'
+// import '../styles/globals.css'
 
 export default function MyApp({ Component, pageProps, router }) {
 

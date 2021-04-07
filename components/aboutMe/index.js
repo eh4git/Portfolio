@@ -22,33 +22,33 @@ const SplashBanner = () => {
     const [screenWidth, setScreenWidth] = useState(2400);
 
     useEffect(() => {
-        setScreen({height: window.innerHeight, width: window.innerWidth})
+        setScreen(window.screen)
         setScreenHeight(screen.height * .7)
         setScreenWidth(screen.width)
-    }, [])
-
-    useEffect(()=>{
-        setScreenHeight(screen.height * .6)
-        setScreenWidth(screen.width)
     }, [screen])
+
+    // useEffect(()=>{
+    //     setScreen(window.screen)
+    //     setScreenHeight(screen.height * .6)
+    //     setScreenWidth(screen.width)
+    // }, [screen])
 
     useEffect(() => {
 
         const handleResize = () => {
-            setScreen({height: window.innerHeight, width: window.innerWidth})
-          
+            setScreen(window.screen)
+            console.log("screen height", screenHeight)
+            console.log("screen width", screenWidth)
+            console.log(window.screen.width)
         }
 
         window.addEventListener('resize', handleResize)
         // return window.removeEventListener('resize', handleResize)
     }, [])
-  console.log("screen height", screenHeight)
-    console.log("screen width", screenWidth)
-    console.log("screen", screen)
+
 
     return (
         <div
-        // style={{ minHeight: '60vh', width: '100%' }}
         
         >
             <Image
@@ -61,8 +61,8 @@ const SplashBanner = () => {
                 objectFit='cover'
                 objectPosition='100% 100%'
                 alt='Banner image'
-                // className={classes.mainImg}
-                // style={classes.imgContainer}
+                className={classes.mainImg}
+                style={classes.imgContainer}
             />
             <Typography style={{ position: 'absolute', top: "20%", left: "50%" }}>
                 Hello, my name is Erik Hirsch
