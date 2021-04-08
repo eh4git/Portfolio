@@ -4,16 +4,25 @@ import { Typography } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-    imgContainer: {
-        overflow: 'visible'
+    mainHeader: {
+        fontSize: "32px",
+        fontWeight: "bold",
+        marginTop: "5%",
+        marginLeft: "20%",
+        marginBottom: "2.5%",
     },
-    mainImg: {
-        // minHeight: '300px!important',
-        minHeight: '650px'
+    text: {
+        marginBottom: "1%",
+        marginLeft: "15%",
+        marginRight: "15%",
+    },
+    img: {
+        position: "absolute",
+        top: "300px"
     },
 })
 
-const SplashBanner = () => {
+const AboutMe = () => {
 
     const classes = useStyles();
 
@@ -22,24 +31,18 @@ const SplashBanner = () => {
     const [screenWidth, setScreenWidth] = useState(2400);
 
     useEffect(() => {
-        setScreen(window.screen)
-        setScreenHeight(screen.height * .7)
+        setScreen({ height: window.innerHeight, width: window.innerWidth })
+    }, [])
+
+    useEffect(() => {
+        setScreenHeight(screen.height)
         setScreenWidth(screen.width)
     }, [screen])
-
-    // useEffect(()=>{
-    //     setScreen(window.screen)
-    //     setScreenHeight(screen.height * .6)
-    //     setScreenWidth(screen.width)
-    // }, [screen])
 
     useEffect(() => {
 
         const handleResize = () => {
-            setScreen(window.screen)
-            console.log("screen height", screenHeight)
-            console.log("screen width", screenWidth)
-            console.log(window.screen.width)
+            console.log("resize")
         }
 
         window.addEventListener('resize', handleResize)
@@ -48,27 +51,37 @@ const SplashBanner = () => {
 
 
     return (
-        <div
-        
-        >
+        <section style={{ display: "flex" }}>
+            <div>
+                <Typography className={classes.mainHeader}>
+                    About
+                </Typography>
+                <Typography className={classes.text}>
+                    Hey everyone! My name is Erik Hirsch, and I am an accredited and certified full stack web developer who possesses the necessary programming and front/back end expertise that guarantees high functioning, aesthetically pleasing results. As a founding member of Third Project Development, I have a rich background within the web and app (Android and IOS) development sphere and enjoy leveraging those collective skills to give my clients the second to none service and outcomes they deserve.
+                </Typography>
+                <Typography className={classes.text}>
+                    Backing up a bit, I was born and raised in Southern California and have always admired the concept of developing. Being able to intertwine my creativity and problem-solving abilities with my passion for learning and skill development is what unanimously inspired me to choose web development as a career. This, along with my commitment, resilience, and strong work ethic that was instilled in me at a young age, inevitably became the catalyst for me to earn my certificate in full stack web development from UCLA Extension in July of 2020. Furthermore, I also hold a certificate in business management from Victor Valley College and developed in-depth knowledge on how to fabricate responsive websites and mobile applications, all of which has positioned me to become the respected web developing asset I am today at Third Project Development.
+                </Typography>
+                <Typography className={classes.text}>
+                    As a professional with a notable "go-getter" attitude, helping people obtain their web/app development goals is the fundamental driver behind my passion for what I do. I built my services on a foundation of authenticity, quality, and trust, and every effort I perform is aimed to raise the industry standards bar as a whole. Overall, I have a genuine ardency for team collaboration and hold a robust inventory of accomplishments to date, all of which can give you the peace of mind that your full stack development objectives are in the best possible hands to succeed.
+                </Typography>
+                <Typography className={classes.text}>
+                    There is no denying that I love my career, and I take pride in delivering top-quality, fully tailored services that support my client in reaching new levels of digital success. However, in my free time, you can find me enjoying the outdoors, animals, avidly hiking, and being a proud husband and father. In fact, my family is my biggest inspiration and motivation that pushes me to be the best that I can be.
+                </Typography>
+            </div>
             <Image
-                src='/img/12721.jpg'
-                height={screenHeight}
-                width={screenWidth}
+                src='/img/profilePicture.jpg'
+                height={500}
+                width={500}
+                // layout='fixed'
                 layout='responsive'
-                // layout='intrinsic'
-                // layout='fill'
-                objectFit='cover'
-                objectPosition='100% 100%'
-                alt='Banner image'
-                className={classes.mainImg}
-                style={classes.imgContainer}
+                // objectFit='cover'
+                // objectPosition='100% 80%'
+                alt='Personal Photo'
+                className={classes.img}
             />
-            <Typography style={{ position: 'absolute', top: "20%", left: "50%" }}>
-                Hello, my name is Erik Hirsch
-            </Typography>
-        </div>
+        </section>
     )
 }
 
-export default SplashBanner
+export default AboutMe

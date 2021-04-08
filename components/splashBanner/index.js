@@ -23,12 +23,10 @@ const SplashBanner = () => {
 
     useEffect(() => {
         setScreen({height: window.innerHeight, width: window.innerWidth})
-        setScreenHeight(screen.height * .7)
-        setScreenWidth(screen.width)
     }, [])
 
     useEffect(()=>{
-        setScreenHeight(screen.height * .6)
+        setScreenHeight(screen.height * .7)
         setScreenWidth(screen.width)
     }, [screen])
 
@@ -36,7 +34,6 @@ const SplashBanner = () => {
 
         const handleResize = () => {
             setScreen({height: window.innerHeight, width: window.innerWidth})
-          
         }
 
         window.addEventListener('resize', handleResize)
@@ -47,10 +44,7 @@ const SplashBanner = () => {
     console.log("screen", screen)
 
     return (
-        <div
-        // style={{ minHeight: '60vh', width: '100%' }}
-        
-        >
+        <section >
             <Image
                 src='/img/12721.jpg'
                 height={screenHeight}
@@ -59,7 +53,7 @@ const SplashBanner = () => {
                 // layout='intrinsic'
                 // layout='fill'
                 objectFit='cover'
-                objectPosition='100% 100%'
+                objectPosition='100% 80%'
                 alt='Banner image'
                 // className={classes.mainImg}
                 // style={classes.imgContainer}
@@ -67,7 +61,7 @@ const SplashBanner = () => {
             <Typography style={{ position: 'absolute', top: "20%", left: "50%" }}>
                 Hello, my name is Erik Hirsch
             </Typography>
-        </div>
+        </section>
     )
 }
 
