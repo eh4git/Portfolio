@@ -14,11 +14,11 @@ const useStyles = makeStyles({
     text: {
         marginBottom: "1%",
         marginLeft: "15%",
-        marginRight: "15%",
+        // marginRight: "15%",
     },
-    img: {
-        position: "absolute",
-        top: "300px"
+    imgContainer: {
+        marginTop: "10%",
+        flex: "1"
     },
 })
 
@@ -51,8 +51,8 @@ const AboutMe = () => {
 
 
     return (
-        <section style={{ display: "flex" }}>
-            <div>
+        <section style={{ position:"relative", display: "flex", flexWrap: "wrap" }}>
+            <div style={{flex: "3"}}>
                 <Typography className={classes.mainHeader}>
                     About
                 </Typography>
@@ -69,17 +69,41 @@ const AboutMe = () => {
                     There is no denying that I love my career, and I take pride in delivering top-quality, fully tailored services that support my client in reaching new levels of digital success. However, in my free time, you can find me enjoying the outdoors, animals, avidly hiking, and being a proud husband and father. In fact, my family is my biggest inspiration and motivation that pushes me to be the best that I can be.
                 </Typography>
             </div>
+            <div className={classes.imgContainer}>
             <Image
                 src='/img/profilePicture.jpg'
-                height={500}
-                width={500}
-                // layout='fixed'
-                layout='responsive'
-                // objectFit='cover'
+                height={screenHeight*.4}
+                width={screenWidth*.3}
+                layout='fixed'
+                // layout='responsive'
+                objectFit='contain'
                 // objectPosition='100% 80%'
                 alt='Personal Photo'
-                className={classes.img}
+                // className={classes.img}
             />
+              <Image
+                src='/img/profilePicture.jpg'
+                height={screenHeight*.4}
+                width={screenWidth*.3}
+                layout='fixed'
+                // layout='responsive'
+                objectFit='contain'
+                // objectPosition='100% 80%'
+                alt='Personal Photo'
+                // className={classes.img}
+            />
+              <Image
+                src='/img/profilePicture.jpg'
+                height={screenHeight*.4}
+                width={screenWidth*.3}
+                layout='fixed'
+                // layout='responsive'
+                objectFit='contain'
+                // objectPosition='100% 80%'
+                alt='Personal Photo'
+                // className={classes.img}
+            />
+            </div>
         </section>
     )
 }
