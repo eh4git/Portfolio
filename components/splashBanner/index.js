@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
-import { Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
+import ContactMailIcon from '@material-ui/icons/ContactMail';
 
 const useStyles = makeStyles({
     imgContainer: {
@@ -22,10 +23,10 @@ const SplashBanner = () => {
     const [screenWidth, setScreenWidth] = useState(2400);
 
     useEffect(() => {
-        setScreen({height: window.innerHeight, width: window.innerWidth})
+        setScreen({ height: window.innerHeight, width: window.innerWidth })
     }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         setScreenHeight(screen.height * .7)
         setScreenWidth(screen.width)
     }, [screen])
@@ -33,13 +34,13 @@ const SplashBanner = () => {
     useEffect(() => {
 
         const handleResize = () => {
-            setScreen({height: window.innerHeight, width: window.innerWidth})
+            setScreen({ height: window.innerHeight, width: window.innerWidth })
         }
 
         window.addEventListener('resize', handleResize)
         // return window.removeEventListener('resize', handleResize)
     }, [])
-  console.log("screen height", screenHeight)
+    console.log("screen height", screenHeight)
     console.log("screen width", screenWidth)
     console.log("screen", screen)
 
@@ -55,12 +56,21 @@ const SplashBanner = () => {
                 objectFit='cover'
                 objectPosition='100% 80%'
                 alt='Banner image'
-                // className={classes.mainImg}
-                // style={classes.imgContainer}
+            // className={classes.mainImg}
+            // style={classes.imgContainer}
             />
-            <Typography style={{ position: 'absolute', top: "20%", left: "50%" }}>
-                Hello, my name is Erik Hirsch
+            <div style={{ position: 'absolute', top: "20%", left: "50%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                <Typography style={{alignSelf: "flex-start", fontSize: '24px',}}>
+                    Hello,
             </Typography>
+            <Typography style={{alignSelf: "flex-start", fontSize: '18px',}}>
+                    my name is <strong style={{color: "red"}}>Erik Hirsch</strong>
+            </Typography>
+            <Typography style={{alignSelf: "flex-start", fontSize: '14px',}}>
+                    - Full Stack Web Developer -
+            </Typography>
+            <Button variant="outlined" >Contact me</Button>
+            </div>
         </section>
     )
 }

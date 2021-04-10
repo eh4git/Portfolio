@@ -1,30 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 import { Typography } from '@material-ui/core';
-import { makeStyles } from "@material-ui/core/styles";
-
+import { makeStyles,  } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 const useStyles = makeStyles({
     mainHeader: {
         fontSize: "32px",
         fontWeight: "bold",
         marginTop: "5%",
         marginLeft: "20%",
+       
         marginBottom: "2.5%",
     },
     text: {
         marginBottom: "1%",
         marginLeft: "15%",
+        marginRight: "5%",
+        fontSize: "18px"
         // marginRight: "15%",
     },
     imgContainer: {
-        marginTop: "10%",
-        flex: "1"
+        // width: "100%,
+        position: "relative",
+        marginTop: "5%",
+        flex: "1",
+        minWidth: "500px",
+        overflow: "hidden"
     },
+    img1: {
+        position: 'absolute',
+        // top: 100,
+        right: "20%",
+        zIndex: 3,
+    },
+    img2: {
+        position: 'absolute',
+        // top: "-20%",
+        left: "50%",
+        zIndex: 2,
+    },
+    img3: {
+        position: 'absolute',
+        top: "65%",
+        right: "1%",
+        zIndex: 1,
+    }
 })
 
 const AboutMe = () => {
 
     const classes = useStyles();
+    const matches = useMediaQuery('(min-width:600px)');
 
     const [screen, setScreen] = useState({ height: 800, width: 2400 });
     const [screenHeight, setScreenHeight] = useState(800);
@@ -51,8 +77,9 @@ const AboutMe = () => {
 
 
     return (
-        <section style={{ position:"relative", display: "flex", flexWrap: "wrap" }}>
-            <div style={{flex: "3"}}>
+        <section style={{ position: "relative", display: "flex", flexWrap: "wrap", backgroundColor: "lightgray" }}>
+            {/* {`(min-width:600px) matches: ${matches}`} */}
+            <div style={{ flex: "3" }}>
                 <Typography className={classes.mainHeader}>
                     About
                 </Typography>
@@ -70,39 +97,45 @@ const AboutMe = () => {
                 </Typography>
             </div>
             <div className={classes.imgContainer}>
-            <Image
-                src='/img/profilePicture.jpg'
-                height={screenHeight*.4}
-                width={screenWidth*.3}
-                layout='fixed'
-                // layout='responsive'
-                objectFit='contain'
-                // objectPosition='100% 80%'
-                alt='Personal Photo'
-                // className={classes.img}
-            />
-              <Image
-                src='/img/profilePicture.jpg'
-                height={screenHeight*.4}
-                width={screenWidth*.3}
-                layout='fixed'
-                // layout='responsive'
-                objectFit='contain'
-                // objectPosition='100% 80%'
-                alt='Personal Photo'
-                // className={classes.img}
-            />
-              <Image
-                src='/img/profilePicture.jpg'
-                height={screenHeight*.4}
-                width={screenWidth*.3}
-                layout='fixed'
-                // layout='responsive'
-                objectFit='contain'
-                // objectPosition='100% 80%'
-                alt='Personal Photo'
-                // className={classes.img}
-            />
+                <div className={classes.img1}>
+                    <Image
+                        src='/img/profilePicture.jpg'
+                        height={500}
+                        width={400}
+                        layout='intrinsic'
+                        // layout='responsive'
+                        objectFit='contain'
+                        // objectPosition='100% 80%'
+                        alt='Personal Photo'
+
+                    />
+                </div>
+                <div className={classes.img2}>
+                    <Image
+                        src='/img/profilePicture.jpg'
+                        height={500}
+                        width={400}
+                        // layout='intrinsic'
+                        layout='responsive'
+                        objectFit='contain'
+                        // objectPosition='40% 100%'
+                        alt='Personal Photo'
+
+                    />
+                </div>
+                <div className={classes.img3}>
+                    <Image
+                        src='/img/12721.jpg'
+                        height={screenHeight * .3}
+                        width={screenWidth * .25}
+                        layout='intrinsic'
+                        // layout='responsive'
+                        objectFit='contain'
+                        // objectPosition='100% 80%'
+                        alt='Personal Photo'
+
+                    />\
+            </div>
             </div>
         </section>
     )
