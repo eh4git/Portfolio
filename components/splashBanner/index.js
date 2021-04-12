@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import Image from 'next/image'
 import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
-import ContactMailIcon from '@material-ui/icons/ContactMail';
+
 
 const useStyles = makeStyles({
     imgContainer: {
@@ -27,7 +27,7 @@ const SplashBanner = () => {
     }, [])
 
     useEffect(() => {
-        setScreenHeight(screen.height * .7)
+        setScreenHeight(screen.height)
         setScreenWidth(screen.width)
     }, [screen])
 
@@ -38,17 +38,16 @@ const SplashBanner = () => {
         }
 
         window.addEventListener('resize', handleResize)
-        // return window.removeEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        } 
     }, [])
-    console.log("screen height", screenHeight)
-    console.log("screen width", screenWidth)
-    console.log("screen", screen)
 
     return (
         <section >
             <Image
                 src='/img/12721.jpg'
-                height={screenHeight}
+                height={screenHeight  * .7}
                 width={screenWidth}
                 layout='responsive'
                 // layout='intrinsic'
