@@ -76,25 +76,12 @@ const useStyles = makeStyles({
 const AboutMe = () => {
 
     const classes = useStyles();
-    const theme = useTheme();
-    const small = useMediaQuery(theme.breakpoints.down('sm'));
-    const medium = useMediaQuery(theme.breakpoints.only('md'));
-    const large = useMediaQuery(theme.breakpoints.up('lg'));
-
 
     const [screen, setScreen] = useState({ height: 800, width: 2400 });
-    const [screenHeight, setScreenHeight] = useState(screen.height);
-    const [screenWidth, setScreenWidth] = useState(screen.width);
 
     useEffect(() => {
         setScreen({ height: window.innerHeight, width: window.innerWidth })
     }, [])
-
-    useEffect(() => {
-        setScreenHeight(screen.height)
-        setScreenWidth(screen.width)
-        // console.log(screen)
-    }, [screen])
 
     useEffect(() => {
 
@@ -111,10 +98,9 @@ const AboutMe = () => {
 
     return (
         <>
-            {small && <span>Small</span>}
-            {medium &&
+            {screen.width < 960 && <span>Small</span>}
+            {screen.width > 960 && screen.width < 1280 &&
                 <section className={classes.section}  >
-
                     <Typography className={classes.mainHeader}>
                         About
                     </Typography>
@@ -140,7 +126,7 @@ const AboutMe = () => {
                             <Image
                                 src='/img/profilePicture.jpg'
                                 height={240}
-                                width={screenWidth * .15}
+                                width={screen.width * .15}
                                 layout='intrinsic'
                                 // layout='responsive'
                                 objectFit='contain'
@@ -160,7 +146,7 @@ const AboutMe = () => {
                             <Image
                                 src='/img/profilePicture.jpg'
                                 height={220}
-                                width={screenWidth * .125}
+                                width={screen.width * .125}
                                 // layout='intrinsic'
                                 layout='intrinsic'
                                 objectFit='contain'
@@ -189,7 +175,7 @@ const AboutMe = () => {
                 </section>
             }
 
-            {large &&
+            {screen.width > 1280 &&
                 <section className={classes.section} >
                     <div className={classes.aboutMeContainer} >
                         <Typography className={classes.mainHeader}>
@@ -212,8 +198,8 @@ const AboutMe = () => {
                         <div className={classes.img1}>
                             <Image
                                 src='/img/profilePicture.jpg'
-                                height={screenHeight * .3}
-                                width={screenWidth * .15}
+                                height={screen.height * .3}
+                                width={screen.width * .15}
                                 layout='intrinsic'
                                 // layout='responsive'
                                 objectFit='contain'
@@ -225,8 +211,8 @@ const AboutMe = () => {
                         <div className={classes.img2}>
                             <Image
                                 src='/img/profilePicture.jpg'
-                                height={screenHeight * .25}
-                                width={screenWidth * .125}
+                                height={screen.height * .25}
+                                width={screen.width * .125}
                                 // layout='intrinsic'
                                 layout='intrinsic'
                                 objectFit='contain'
@@ -238,8 +224,8 @@ const AboutMe = () => {
                         <div className={classes.img3}>
                             <Image
                                 src='/img/12721.jpg'
-                                height={screenHeight * .3}
-                                width={screenWidth * .25}
+                                height={screen.height * .3}
+                                width={screen.width * .25}
                                 layout='intrinsic'
                                 // layout='responsive'
                                 objectFit='contain'
