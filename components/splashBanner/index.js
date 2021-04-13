@@ -19,17 +19,10 @@ const SplashBanner = () => {
     const classes = useStyles();
 
     const [screen, setScreen] = useState({ height: 800, width: 2400 });
-    const [screenHeight, setScreenHeight] = useState(800);
-    const [screenWidth, setScreenWidth] = useState(2400);
 
     useEffect(() => {
         setScreen({ height: window.innerHeight, width: window.innerWidth })
     }, [])
-
-    useEffect(() => {
-        setScreenHeight(screen.height)
-        setScreenWidth(screen.width)
-    }, [screen])
 
     useEffect(() => {
 
@@ -47,8 +40,8 @@ const SplashBanner = () => {
         <section >
             <Image
                 src='/img/12721.jpg'
-                height={screenHeight  * .7}
-                width={screenWidth}
+                height={screen.height  * .7}
+                width={screen.width}
                 layout='responsive'
                 // layout='intrinsic'
                 // layout='fill'
