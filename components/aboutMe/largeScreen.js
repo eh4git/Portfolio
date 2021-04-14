@@ -49,9 +49,9 @@ const useStyles = makeStyles({
         zIndex: 2,
     },
     img3: {
-        position: 'relative',
+        // position: 'relative',
         top: "-20%",
-        left: "1%",
+        left: "-2%",
         zIndex: 1,
     },
 });

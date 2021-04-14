@@ -39,7 +39,8 @@ const useStyles = makeStyles({
     //------ Medium Size Specific Classes --------
     paragraphContainer: {
         display: "flex",
-        justifyContent: "space-around",
+        alignItems: "center",
+        // justifyContent: "space-around",
         marginLeft: "10%",
         marginRight: "5%"
     },
@@ -75,7 +76,7 @@ const MediumScreen = ({screen}) => {
                                 layout='intrinsic'
                                 // layout='responsive'
                                 objectFit='contain'
-                                objectPosition='100% 80%'
+                                // objectPosition='100% 80%'
                                 alt='Personal Photo'
                             />
                         </div>
@@ -89,12 +90,12 @@ const MediumScreen = ({screen}) => {
                                 layout='intrinsic'
                                 // layout='responsive'
                                 objectFit='contain'
-                                objectPosition='100% 80%'
+                                // objectPosition='100% 80%'
                                 alt='Personal Photo'
                             />
                         </div>
                         <Typography className={classes.textMd}>
-                            Backing up a bit, I was born and raised in Southern California and have always admired the concept of developing. Being able to intertwine my creativity and problem-solving abilities with my passion for learning and skill development is what unanimously inspired me to choose web development as a career. This, along with my commitment, resilience, and strong work ethic that was instilled in me at a young age, inevitably became the catalyst for me to earn my certificate in full stack web development from UCLA Extension in July of 2020. Furthermore, I also hold a certificate in business management from Victor Valley College and developed in-depth knowledge on how to fabricate responsive websites and mobile applications, all of which has positioned me to become the respected web developing asset I am today at Third Project Development.
+                            I was born and raised in Southern California and have always admired the concept of developing. Being able to intertwine my creativity and problem-solving abilities with my passion for learning and skill development is what unanimously inspired me to choose web development as a career. This, along with my commitment, resilience, and strong work ethic that was instilled in me at a young age, inevitably became the catalyst for me to earn my certificate in full stack web development from UCLA Extension in July of 2020. Furthermore, I also hold a certificate in business management from Victor Valley College and developed in-depth knowledge on how to fabricate responsive websites and mobile applications, all of which has positioned me to become the respected web developing asset I am today at Third Project Development.
                         </Typography>
                     </div>
                     <div className={classes.paragraphContainer}>
@@ -118,8 +119,8 @@ const MediumScreen = ({screen}) => {
                         <div className={classes.imgMd}>
                             <Image
                                 src='/img/12721.jpg'
-                                height={600}
-                                width={500}
+                                height={250}
+                                width={screen.width * .225}
                                 layout='intrinsic'
                                 // layout='responsive'
                                 objectFit='contain'
